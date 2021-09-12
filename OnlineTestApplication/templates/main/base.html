@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Online Test{% endblock title %}</title>
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {% block css %}
+      <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+    {% endblock css %}
+    
+      
+</head>
+
+<body>
+    
+    <header class="header">
+        <div class="navbar-area">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{% url 'main:home' %}"><i class="fa fa-home"></i> Home</a</li>
+                    <li><a href="{% url 'main:teacher_signin' %}"><i class="fas fa-chalkboard-teacher"></i> &nbsp;Teacher</a></li>
+                    <li><a href="{% url 'main:student_signin' %}"><i class="fas fa-user-graduate"></i> &nbsp;Student</a></li>
+                 </ul>
+            </nav>
+        </div>
+    </header>
+
+    {% block content1 %} 
+
+    {% endblock %}
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-replace-svg="nest"></script>
+</body>
+</html>

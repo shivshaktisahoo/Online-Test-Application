@@ -1,0 +1,30 @@
+{% extends 'teacher/teacher_base.html' %}
+
+
+{% block title %}Questions{% endblock title %}
+
+
+{% block content %}
+<center> 
+    
+    <div style=" width: 80%; border: 10px outset rgb(168, 170, 168); border-radius: 10px; margin: 100px;">
+        
+    <div style="background: linear-gradient(to bottom, #fffccc 0%, #cfcfcf 100%);  border-radius: 0px;">
+        
+        <h1> Add New Question</h1>
+        <br>
+        <form method="POST"  style="text-align: center;">
+                       
+        {% csrf_token %}
+     
+            {{form}}<br>
+    
+            <br><center><button type='sumbit' class="btn btn-success btn-sm m-2">CONFIRM</button></center>
+            <br><br>
+        </form>
+    </div>
+    </div>
+</center> 
+
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends 'teacher/teacher_base.html' %}
+
+{% block title %}Questions{% endblock title %}
+
+{% block css %}
+{{block.super}}
+<style>
+    .div1{
+        padding: 20px;
+        margin: 50px;
+    }
+    h1{
+        color: rgb(78, 4, 121);
+    }
+    .btn{
+        padding: 20px;
+        font-size: 15pt;
+    }
+    .btn:hover{
+            text-decoration: underline;
+    }
+    .div1 a {
+        color: white; 
+        font-size: 15pt;
+    }
+
+</style>
+
+{% endblock css %}
+
+
+{% block content %}
+<div class="div1">
+<h1>Questions</h1>
+<hr class="border-primary">
+<div class="row">   
+    <div class="col-sm-6">  
+
+        <a href="{% url 'onlinetest:question_list' %}"><button type='sumbit' class="btn btn-primary btn-sm m-2">View questions</button></a>
+    </div>
+    <div class="col-sm-6">  
+        <a href="{% url 'onlinetest:add_new_question' %}"><button type='sumbit' class="btn btn-primary btn-sm m-2">Add new questions</button></a>
+        
+    </div>
+</div>
+
+</div>
+{% endblock %}

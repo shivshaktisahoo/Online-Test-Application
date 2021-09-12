@@ -1,0 +1,55 @@
+{% extends 'teacher/teacher_base.html' %}
+{% load static %}
+
+{% block css %}
+      <link rel="stylesheet" href="{% static 'teacher/css/teacher_base.css' %}">
+    {% endblock css %}
+
+{% block content %}
+<div class="heading1">
+<h1>{{user.username}}'s Profile</h1>
+</div>
+
+
+<div class="detailinfo">
+    <div class="left">
+        <p>
+            <span class="info">User Id:</span> <span class="detail">{{user.id}}</span>
+        </p>
+        <p>
+            <span class="info">User Name:</span> <span class="detail">{{user.username}}</span>
+        </p>
+        <p>
+            <span class="info">
+                Profile Photo:</span>
+            <span>
+                {% if teach.profile_photo %}
+                    <img src='{{teach.profile_photo.url}}' height=50 width=50 style="border-radius: 30px;">
+                {% else %}
+                    No Image Found
+                {% endif %}
+            </span>
+        </p>
+        <p>
+            <span class="info">Full Name:</span> <span class="detail">{{teach.full_name|capfirst}}</span>
+        </p>
+        <p>
+            <span class="info">Date of Birth:</span> <span class="detail">{{teach.dob}}</span>
+        </p>
+        <p>
+            <span class="info">Email:</span> <span class="detail">{{user.email}}</span>
+        </p>
+        <p>
+            <span class="info">Address:</span> <span class="detail">{{teach.address}}</span>
+        </p>
+        <p>
+            <span class="info">Contact Number:</span> <span class="detail">{{teach.contactno}}</span>
+        </p>
+       
+    </div>
+</div>
+
+<div class="text-center">
+    <a class="btn btn-success btn-sm m-2" href="{% url 'teacher:edit_teacher' teach.id %}"> <i class="fas fa-edit ml-1"></i> Update</a>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'teacher/teacher_base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css %}
+      <link rel="stylesheet" href="{% static 'teacher/css/teacher_base.css' %}">
+    {% endblock css %}
+
+{% block content %}
+<div class="heading1">
+    <h1>{{user.username|capfirst}}'s Profile</h1>
+</div>
+
+<center> 
+    <div style=" width: 50%; border: 10px outset rgb(28, 176, 196); border-radius: 60px;">
+    
+        
+    <div style="background: linear-gradient(to bottom, #ccffff 0%, #5f98ee 100%);  border-radius: 50px;">
+        <br>
+        <form method="POST"  style="text-align: center;" enctype="multipart/form-data">
+                       
+        {% csrf_token %}
+     
+            {{form.full_name|as_crispy_field}}<br>
+        
+            {{form.dob|as_crispy_field}}<br>
+
+            {{form.profile_photo|as_crispy_field}}<br>
+       
+            {{form.address|as_crispy_field}}<br>
+       
+            {{form.contactno|as_crispy_field}}<br>
+    
+            <br><center><button type='sumbit' class="btn btn-success btn-sm m-2">CONFIRM</button></center>
+            <br><br>
+        </form>
+    </div>
+    </div>
+</center> 
+
+
+{% endblock %}

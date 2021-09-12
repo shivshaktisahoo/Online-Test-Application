@@ -1,0 +1,29 @@
+{% extends 'student/student_base.html' %}
+{% load static %}
+{% block css %}
+      <link rel="stylesheet" href="{% static 'teacher/css/teacher_base.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div style="position: fixed; width: 90%; text-align: center;">
+<h3 style="text-align: center; background-color: wheat;">Subject- <span style="color: crimson;">{{sub_name}}</span></h3>
+</div>
+<br>
+<br>
+<form action="{% url 'student:get_answer' %}">
+<input type="hidden" name="id" value="{{id}}">
+{% for qs in questions %}
+<div>   
+    {{forloop.counter}}. {{qs.question}} <span style="float: right; font-weight: 600;">mark : {{qs.ques_mark}}</span> <br>
+    <input type="radio" name="{{qs.id}}" value="option1"> {{qs.option1}} <br>
+    <input type="radio" name="{{qs.id}}" value="option2"> {{qs.option2}} <br>
+    <input type="radio" name="{{qs.id}}" value="option3"> {{qs.option3}} <br>
+    <input type="radio" name="{{qs.id}}" value="option4"> {{qs.option4}} <br>
+
+<br><hr><br>
+{% endfor %}
+<button type="submit" class="btn btn-primary"> Submit</button>
+</form>
+<br><br>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'teacher/teacher_base.html' %}
+
+
+{% block title %}Course & Subject{% endblock title %}
+
+
+{% block content %}
+
+<h1 style="text-align: center;">Subject List</h1>
+<table class="table table-striped table-hover table-condensed table-bordered table-light text-center">
+    <thead class="thead thead-dark">
+        <tr scope="col">
+            <th>SL.NO.</th>
+            <th>Course Name</th>
+            <th>Subject Name</th>
+            <th>Total Marks</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for sl in subjectlist %}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{sl.course_name|upper}}</td>
+            <td>{{sl.subject_name}}</td>
+            <td>{{sl.total_marks}}</td>
+            <td>
+                <a class="btn btn-success btn-sm m-2" href="{% url 'onlinetest:subject_update' sl.id %}"> <i class="fas fa-edit ml-1"></i> Update</a>
+               
+               <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger btn-sm m-2" data-bs-toggle="modal" data-bs-target="#exampleModal{{sl.id}}">
+                    <i class="fas fa-trash-alt ml-1"></i> Delete
+                </button>
+  
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal{{sl.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete {{sl.subject_name}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                       <h5 style="color: red;">Are you sure want to delete Subject: {{sl.subject_name}}</h5>
+                      </div>
+                      <div class="modal-footer">
+                        <a class="btn btn-danger btn-sm m-2" href="{% url 'onlinetest:subject_delete' sl.id %}"> <i class="fas fa-trash-alt ml-1"></i> Delete</a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+           </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table> 
+
+
+
+{% endblock content %}

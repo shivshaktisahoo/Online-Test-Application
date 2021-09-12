@@ -1,0 +1,56 @@
+html, body{
+    height: 100%
+}
+.container-fluid{
+    min-height: 100%;
+}
+a.nav-link{
+     color: Brown;
+     font-weight: 600;
+     line-height: 30pt;
+}
+a.nav-link:hover{
+    color: white;
+    background-color: rgb(118, 173, 224);
+}
+a.nav-link.active{
+    color: white;
+    background-color: rgb(16, 92, 163);
+}
+.heading1 h1{
+    background-color: rgb(109, 108, 109);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 30px 30px;  
+    margin-top: 20px;
+}
+.detailinfo{
+    line-height: 30pt;
+    text-align: justify;
+    margin-left: 8em;
+    margin-top: 1rem;
+}
+.info{
+    font-size: 20pt;
+    font-weight: bold;
+    color: rgb(133, 62, 4);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.detail{
+    font-size: 18pt;
+    font-weight: bold;
+    color: rgb(88, 84, 84);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0px 20px;
+}
+
+.left p{
+    border-left-width: 10px;
+    border-left-style: solid;
+    border-left-color: rgb(250, 185, 89);
+    background: linear-gradient(to bottom, #faf8f4 0%, #fddfc1 100%);
+    padding: 0px 20px;
+    border-radius: 5px;
+    /* shorthand property of border-top: border-left-width border-left-style  border-left-color; */
+    /* border-left: 2px solid blue; */
+}

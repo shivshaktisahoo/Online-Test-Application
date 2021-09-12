@@ -1,0 +1,71 @@
+{% extends 'teacher/teacher_base.html' %}
+
+
+{% block title %}Questions{% endblock title %}
+
+
+{% block content %}
+<h1 style="text-align: center;">Questions List</h1>
+<table class="table table-striped table-hover table-condensed table-bordered table-light text-center">
+    <thead class="thead thead-dark">
+        <tr scope="col">
+            <th>SL.NO.</th>
+            <th>Subject Name</th>
+            <th>Question</th>
+            <th>Option1</th>
+            <th>Option2</th>
+            <th>Option3</th>
+            <th>Option4</th>
+            <th>Correct Option</th>
+            <th>Mark</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for ql in questionlist %}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{ql.subject_name}}</td>
+            <td>{{ql.question}}</td>
+            <td>{{ql.option1}}</td>
+            <td>{{ql.option2}}</td>
+            <td>{{ql.option3}}</td>
+            <td>{{ql.option4}}</td>
+            <td>{{ql.correct_option}}</td>
+            <td>{{ql.ques_mark}}</td>
+            <td>
+                <a class="btn btn-success btn-sm m-2" href="{% url 'onlinetest:question_update' ql.id %}"> <i class="fas fa-edit ml-1"></i> Update</a>
+                
+                 <!-- Button trigger modal -->
+                 <button type="button" class="btn btn-danger btn-sm m-2" data-bs-toggle="modal" data-bs-target="#exampleModal{{ql.id}}">
+                    <i class="fas fa-trash-alt ml-1"></i> Delete
+                </button>
+  
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal{{ql.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Are you sure want to delete this Question: </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                       <h5 style="color: brown;">{{ql.question}}</h5>
+                      </div>
+                      <div class="modal-footer">
+                        <a class="btn btn-danger btn-sm m-2" href="{% url 'onlinetest:question_delete' ql.id %}"> <i class="fas fa-trash-alt ml-1"></i> Delete</a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock content %}

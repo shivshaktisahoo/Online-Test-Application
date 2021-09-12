@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Signup{% endblock title %}
+
+{% block css %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'main/css/signup.css' %}">
+{% endblock css %}
+
+
+
+{% block content1 %}  
+  
+    <center>
+    <div>
+        <h1 class="createuser">SIGNUP</h1>
+    </div>
+    <div style=" width: 50%; border: 10px outset rgb(28, 176, 196); border-radius: 60px;">
+    
+        
+    <div style="background: linear-gradient(to bottom, #ccffff 0%, #5f98ee 100%);  border-radius: 50px;">
+        <br>
+        <form method="POST"  style="text-align: center;">
+            <!-- {% if form.errors %}
+            <div class="alert alert-error">
+                <h4>Please fix the following errors</h4>
+                <ul>
+                    {% for field in form %}
+                    {% if field.errors %}
+                    {% for error in field.errors %}
+                    <p><strong>{{ field.name }}</strong> {{ error|escape }}</p>
+                    {% endfor %}
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+                {% if form.non_field_errors %}
+                {{ form.non_field_errors }}
+                {% endif %}
+            </div>
+            {% endif %} -->
+            
+        {% csrf_token %}
+     
+            {{form.first_name|as_crispy_field}}<br>
+        
+            {{form.last_name|as_crispy_field}}<br>
+
+            {{form.email|as_crispy_field}}<br>
+       
+            {{form.username|as_crispy_field}}<br>
+       
+            {{form.password1|as_crispy_field}}<i class="fas fa-info-circle"></i><br><br>
+            
+            {{form.password2|as_crispy_field}}<br>
+    
+            <br><center><button type='sumbit' class="btn">CONFIRM</button></center>
+            <br><br>
+        </form>
+    </div>
+    </div>
+</center> 
+
+{% endblock %}

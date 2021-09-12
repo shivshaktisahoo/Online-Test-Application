@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Student | Signin{% endblock title %}
+
+{% block css %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'main/css/signup.css' %}">
+{% endblock css %}
+
+{% block content1 %}  
+  
+    <center>
+    <div>
+        <h1 style="font-size: 60px; color: whitesmoke;">Student SignIn</h1>
+    </div>
+    <br>
+    <div style=" width: 40%; border: 10px outset rgb(28, 176, 196); border-radius: 60px;">
+    
+        
+    <div style="background: linear-gradient(to bottom, #ccffff 0%, #5f98ee 100%);  border-radius: 50px;">
+        <br>
+        <form method="POST"  style="text-align: center;">           
+       
+            {% csrf_token %}
+            <label for='username' style="font-size: 13pt; font-weight: bold;">Username :</label>
+            <input name='username' class="form-control" type='text' placeholder="Enter Username" required style="border: 2px outset rgb(28, 176, 196);">
+            <br>
+            <label for='pass'  style="font-size: 13pt; font-weight: bold;">Password : </label>
+            <input name='pass' class="form-control" type='password'placeholder="Enter Password" required style="border: 2px outset rgb(28, 176, 196);">
+            <a href="{% url 'password_reset' %}" style=" font-size: 10pt; color: blue; text-decoration: underline; float: right;"> Forgot password ?</a>
+
+            <br>
+    
+            <br><center><button type='sumbit' class="btn">CONFIRM</button></center>
+            
+            <br><br>
+        </form>
+
+    </div>
+    
+        <!-- <button class="btn"><i class="fas fa-chalkboard-teacher"></i> &nbsp;Create an Account</button></a>&nbsp;&nbsp; -->
+    </div>
+    <br>
+    <p style="font-size: 10pt; font-weight: 600;">For New User</p>
+    <hr>
+        <a href="{% url 'main:signup' 'student' %}">
+        <button type='sumbit' style="background-color: rgb(8, 128, 8); border-radius: 5px; color: white"><i class="fas fa-user-plus"></i> Create an Account</button></a>
+    
+       
+</center> 
+
+{% endblock %}

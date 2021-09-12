@@ -1,0 +1,15 @@
+.errorlist {
+    color: red;
+}
+
+.helptext {
+    color: rgb(1, 66, 1);
+}
+.form-control {
+    border-radius: 10px;
+    border: thin solid lightgray;
+}
+.bcolor{
+background: linear-gradient(to bottom, #ccffff 0%, #ffcf4b 100%);
+}
+

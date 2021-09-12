@@ -1,0 +1,29 @@
+{% extends 'student/student_base.html' %}
+{% load static %}
+{% block css %}
+      <link rel="stylesheet" href="{% static 'teacher/css/teacher_base.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+<table class="table table-striped table-hover table-condensed table-bordered table-light text-center">
+    <thead class="thead thead-dark">
+        <tr>
+            <th scope="col">SL.NO.</th>
+            <th scope="col">Subject Name</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sub in subject %}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{sub.subject_name|upper}}</td>
+            <td>
+                <a class="btn btn-warning btn-sm m-2" href="{% url 'student:take_test' sub.id %}"> <i class="fas fa-edit ml-1"></i> Take Test</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+{% endblock %}

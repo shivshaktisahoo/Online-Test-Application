@@ -1,0 +1,33 @@
+{% extends 'teacher/teacher_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Course & Subject{% endblock title %}
+
+
+{% block content %}
+<center> 
+    
+    <div style=" width: 80%; border: 10px outset rgb(168, 170, 168); border-radius: 10px; margin: 100px;">
+       
+        
+    <div style="background: linear-gradient(to bottom, #fffccc 0%, #b2b6b6 100%);  border-radius: 0px;">
+        
+        <h1> Update Subject</h1>
+        <br>
+        <form method="POST"  style="text-align: center;">
+                       
+        {% csrf_token %}
+     
+            {{form.course_name|as_crispy_field}}<br>
+            {{form.subject_name|as_crispy_field}}<br>
+            {{form.total_marks|as_crispy_field}}<br>
+    
+            <br><center><button type='sumbit' class="btn btn-success btn-sm m-2">CONFIRM</button></center>
+            <br><br>
+        </form>
+    </div>
+    </div>
+</center> 
+
+
+{% endblock content %}

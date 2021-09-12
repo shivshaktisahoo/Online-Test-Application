@@ -1,0 +1,27 @@
+.errorlist {
+    color: brown;
+}
+
+.helptext {
+    color: blue;
+}
+.form-control {
+    border-radius: 10px;
+    border: thin solid lightgray;
+}
+
+
+body{
+    background: linear-gradient(to bottom, #5d0281 0%, #e6e9e5 100%);
+}
+.btn{
+    border-radius: 10px;
+    background-color: rgb(10, 102, 207);
+    font-weight: bold;
+    color:aliceblue;
+}
+.createuser{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:white;
+    font-size: 3rem;
+}
